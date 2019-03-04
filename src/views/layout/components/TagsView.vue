@@ -75,8 +75,10 @@ export default {
       let tags = []
       routes.forEach(route => {
         if (route.meta && route.meta.affix) {
+          const tagPath = path.resolve(basePath, route.path)
           tags.push({
-            path: path.resolve(basePath, route.path),
+            fullPath: tagPath,
+            path: tagPath,
             name: route.name,
             meta: { ...route.meta }
           })
